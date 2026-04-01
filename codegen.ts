@@ -6,6 +6,7 @@ const config: CodegenConfig = {
   generates: {
     "src/generated/graphql-types.ts": {
       plugins: [
+        { add: { content: "// @ts-nocheck" } },
         "typescript",
         "typescript-operations",
         "typescript-react-apollo",
@@ -15,6 +16,7 @@ const config: CodegenConfig = {
         withHOC: false,
         withComponent: false,
         apolloReactHooksImportFrom: "@apollo/client/react",
+        enumsAsTypes: true,
       },
     },
   },

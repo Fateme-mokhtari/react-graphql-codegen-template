@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactHooks from '@apollo/client/react';
@@ -19,10 +20,9 @@ export type Scalars = {
   Upload: { input: any; output: any; }
 };
 
-export enum CacheControlScope {
-  Private = 'PRIVATE',
-  Public = 'PUBLIC'
-}
+export type CacheControlScope =
+  | 'PRIVATE'
+  | 'PUBLIC';
 
 export type Character = {
   __typename?: 'Character';
