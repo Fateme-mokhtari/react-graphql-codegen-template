@@ -1,0 +1,11 @@
+.load-more-sentinel {
+  margin-top: 24px;
+  text-align: center;
+  padding: 20px;
+  color: var(--text-secondary, #888);
+}
+
+.load-more-sentinel p {
+  margin: 0;
+  font-size: 0.9rem;
+}
