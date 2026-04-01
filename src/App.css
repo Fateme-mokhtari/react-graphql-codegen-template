@@ -58,6 +58,13 @@
   background: var(--bg);
   border-radius: 14px;
   padding: 14px;
+  transition: all 0.2s ease;
+}
+
+.character-card:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
 }
 
 .character-card img {

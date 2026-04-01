@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 import { CharacterCard } from "./components/CharacterCard";
 import { useGetCharactersQuery } from "./generated/graphql-types";
@@ -13,6 +14,7 @@ const header = (
 );
 
 function App() {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const { data, loading, error } = useGetCharactersQuery({
     variables: { page },
@@ -65,7 +67,11 @@ function App() {
         {characters.length > 0 ? (
           <div className="result-grid">
             {characters.map((character) => (
-              <CharacterCard key={character.id} character={character} />
+              <CharacterCard
+                key={character.id}
+                character={character}
+                onClick={(id) => navigate(`/character/${id}`)}
+              />
             ))}
           </div>
         ) : null}

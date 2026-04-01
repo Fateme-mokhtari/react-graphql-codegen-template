@@ -1,8 +1,14 @@
 # React + TypeScript + Vite
 
-Beginner article for this project setup:
+A modern React portfolio project demonstrating GraphQL integration, code generation, and professional React patterns.
 
-- [GraphQL integration with generated types and hooks](docs/graphql-integration-beginner.md)
+## Key Features
+
+- **GraphQL Code Generation**: Auto-generated TypeScript types and React Apollo hooks from `.graphql` operations
+- **Character Pagination**: Browse Rick & Morty characters with previous/next navigation
+- **Character Details**: Click any character to view full profile including origin, location, and episode appearances
+- **React Router v6**: Professional client-side routing with Suspense boundaries
+- **Type-Safe Queries**: Full TypeScript support for GraphQL operations with no type mismatch bugs
 
 ## GraphQL Workflow
 
@@ -33,6 +39,12 @@ Reusable Apollo hooks are generated there too, for example:
 ```ts
 import { useGetCharactersQuery } from "./generated/graphql-types";
 ```
+
+## Documentation
+
+For a detailed guide on GraphQL integration, see:
+
+- [GraphQL Integration Guide for Beginners](docs/graphql-integration-beginner.md)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
