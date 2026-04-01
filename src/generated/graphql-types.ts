@@ -204,15 +204,23 @@ export type QueryLocationsByIdsArgs = {
   ids: Array<Scalars['ID']['input']>;
 };
 
-export type GetCharactersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCharactersQueryVariables = Exact<{
+  page?: InputMaybe<Scalars['Int']['input']>;
+}>;
 
 
-export type GetCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, status?: string | null, species?: string | null, image?: string | null } | null> | null } | null };
+export type GetCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', info?: { __typename?: 'Info', count?: number | null, pages?: number | null, next?: number | null, prev?: number | null } | null, results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, status?: string | null, species?: string | null, image?: string | null } | null> | null } | null };
 
 
 export const GetCharactersDocument = gql`
-    query GetCharacters {
-  characters(page: 1) {
+    query GetCharacters($page: Int = 1) {
+  characters(page: $page) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
     results {
       id
       name
@@ -236,6 +244,7 @@ export const GetCharactersDocument = gql`
  * @example
  * const { data, loading, error } = useGetCharactersQuery({
  *   variables: {
+ *      page: // value for 'page'
  *   },
  * });
  */
